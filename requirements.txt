@@ -6,3 +6,6 @@ matplotlib
 seaborn
 imblearn
 joblib
+yfinance
+requests
+datetime
