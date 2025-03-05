@@ -90,7 +90,18 @@ def main():
         else:
             st.warning("⚠️ Unable to fetch stock data.")
     
-
+    st.subheader("🚀 Select a Company to Predict:")
+    
+    with st.container():
+        companies = {
+            "Google": "pages/Google.py",
+            "Meta": "pages/Meta.py",
+            "Ford": "pages/Ford.py",
+            "Apple": "pages/Apple.py",
+            "Netflix": "pages/Netflix.py"
+        }
+        for company, page in companies.items():
+            st.markdown(f"- [{company}]({page})")
     
 
     
