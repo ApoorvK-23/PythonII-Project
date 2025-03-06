@@ -26,9 +26,9 @@ st.write("Analyze and predict Google's stock price movements with AI-powered ins
 # Company Background Section
 st.subheader("📌 About Google Inc.")
 st.write(
-    "Apple Inc. is a multinational technology company that specializes in consumer electronics, software, and online services."
-    " It is one of the world's most valuable companies and is known for its innovative products such as the iPhone, MacBook, iPad, and Apple Watch."
-    " Apple is also a leader in financial performance, consistently showing strong stock growth and market dominance."
+"Google, a subsidiary of Alphabet Inc., is a global technology company specializing in internet-related services, artificial intelligence, and cloud computing."
+"It is best known for its search engine, Google Chrome, Android OS, YouTube, and Google Cloud, serving billions of users worldwide."
+"Google continues to lead advancements in AI, machine learning, and quantum computing, reinforcing its dominance in the tech industry."
 )
 
 # Date Input
