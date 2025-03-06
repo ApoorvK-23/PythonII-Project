@@ -26,9 +26,9 @@ st.write("Analyze and predict Google's stock price movements with AI-powered ins
 # Company Background Section
 st.subheader("📌 About Meta.")
 st.write(
-    "Apple Inc. is a multinational technology company that specializes in consumer electronics, software, and online services."
-    " It is one of the world's most valuable companies and is known for its innovative products such as the iPhone, MacBook, iPad, and Apple Watch."
-    " Apple is also a leader in financial performance, consistently showing strong stock growth and market dominance."
+"Meta Platforms Inc. is a multinational technology company that focuses on social media, virtual reality, and digital connectivity."
+"It owns some of the world's most widely used platforms, including Facebook, Instagram, WhatsApp, and Messenger, driving global digital interaction."
+"Meta is at the forefront of innovation in artificial intelligence and the metaverse, shaping the future of social networking and immersive virtual experiences."
 )
 
 # Date Input
