@@ -26,9 +26,9 @@ st.write("Analyze and predict Ford's stock price movements with AI-powered insig
 # Company Background Section
 st.subheader("📌 About Apple Inc.")
 st.write(
-    "Apple Inc. is a multinational technology company that specializes in consumer electronics, software, and online services."
-    " It is one of the world's most valuable companies and is known for its innovative products such as the iPhone, MacBook, iPad, and Apple Watch."
-    " Apple is also a leader in financial performance, consistently showing strong stock growth and market dominance."
+"Ford Motor Company is an American multinational automobile manufacturer that specializes in designing, manufacturing, and selling automobiles, trucks, and mobility services."
+"It is one of the world's largest automakers and is known for its iconic models such as the Ford Mustang, F-Series trucks, and the Bronco."
+"Ford continues to be a leader in automotive innovation, investing heavily in electric vehicles (EVs), autonomous driving technology, and sustainable mobility solutions"
 )
 
 # Date Input
