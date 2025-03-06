@@ -26,9 +26,9 @@ st.write("Analyze and predict Netflix's stock price movements with AI-powered in
 # Company Background Section
 st.subheader("📌 About Netflix")
 st.write(
-    "Apple Inc. is a multinational technology company that specializes in consumer electronics, software, and online services."
-    " It is one of the world's most valuable companies and is known for its innovative products such as the iPhone, MacBook, iPad, and Apple Watch."
-    " Apple is also a leader in financial performance, consistently showing strong stock growth and market dominance."
+"Netflix, Inc. is a multinational entertainment company that specializes in streaming media, original content production, and digital distribution."
+"It is one of the world's leading streaming platforms, known for blockbuster hits like Stranger Things, Squid Game, and The Crown."
+"Netflix continues to revolutionize the entertainment industry by investing in high-quality original programming and expanding its global reach."
 )
 
 # Date Input
