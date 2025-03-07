@@ -2,6 +2,7 @@ import streamlit as st
 import joblib
 import pandas as pd
 import plotly.graph_objects as go
+import plotly.express as px
 from util import PySimFin  # Import PySimFin class
 from sklearn.preprocessing import StandardScaler
 from trading_strategy import execute_trading_strategy
