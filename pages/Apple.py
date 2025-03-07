@@ -145,6 +145,12 @@ st.write(f"**Final Account Balance:** ${final_results['Final Balance']:.2f}")
 st.write(f"**Shares Held:** {final_results['Shares Held']}")
 st.write(f"**Total Portfolio Value:** ${final_results['Total Portfolio Value']:.2f}")
 
+# Line Chart for Trading Strategy Performance
+trading_df = pd.DataFrame(final_results["Trading History"], columns=["Date", "Portfolio Value"])
+fig_strategy = px.line(trading_df, x="Date", y="Portfolio Value", title="📈 Trading Strategy Performance")
+fig_strategy.update_layout(template="plotly_dark")
+st.plotly_chart(fig_strategy, use_container_width=True)
+
 # Display Trading History as a DataFrame
 trading_history_df = pd.DataFrame(final_results["Trading History"], columns=["Action", "Price"])
 st.subheader("📜 Trading History")
