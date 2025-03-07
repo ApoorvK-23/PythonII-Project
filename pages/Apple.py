@@ -146,12 +146,15 @@ st.write(f"**Final Account Balance:** ${final_results['Final Balance']:.2f}")
 st.write(f"**Shares Held:** {final_results['Shares Held']}")
 st.write(f"**Total Portfolio Value:** ${final_results['Total Portfolio Value']:.2f}")
 
-# Simple Line Chart for Trading Strategy Performance
+# Simple Time Series Line Chart for Total Portfolio Value
 trading_df = pd.DataFrame(final_results["Trading History"], columns=["Date", "Portfolio Value"])
-fig_strategy = go.Figure()
-fig_strategy.add_trace(go.Scatter(x=trading_df["Date"], y=trading_df["Portfolio Value"], mode='lines', name='Portfolio Value'))
-fig_strategy.update_layout(title="📈 Trading Strategy Performance", xaxis_title="Date", yaxis_title="Portfolio Value", template="plotly_dark")
-st.plotly_chart(fig_strategy, use_container_width=True)
+fig, ax = plt.subplots()
+ax.plot(trading_df["Date"], trading_df["Portfolio Value"], marker='o', linestyle='-')
+ax.set_title("📈 Total Portfolio Value Over Time")
+ax.set_xlabel("Date")
+ax.set_ylabel("Portfolio Value")
+plt.xticks(rotation=45)
+st.pyplot(fig)
 
 
 # Display Trading History as a DataFrame
