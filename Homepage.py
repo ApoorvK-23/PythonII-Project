@@ -4,34 +4,34 @@ import requests
 import pandas as pd
 import datetime
 
-def fetch_financial_news():
-    API_KEY = "1Sz45lN5jp4HrVJeS07bZ6KQv84GlrNw21jc77WX"  # Replace with your valid API key
-    url = f"https://api.marketaux.com/v1/news/all?language=en&api_token={API_KEY}"
-    response = requests.get(url)
-    if response.status_code == 200:
-        articles = response.json().get("articles", [])
-        return articles[:5]  # Return top 5 news articles
-    else:
-        st.warning("⚠️ Unable to fetch news. API response:", response.json())
-        return []
+# def fetch_financial_news():
+# API_KEY = "1Sz45lN5jp4HrVJeS07bZ6KQv84GlrNw21jc77WX"  # Replace with your valid API key
+# url = f"https://api.marketaux.com/v1/news/all?language=en&api_token={API_KEY}"
+# response = requests.get(url)
+# if response.status_code == 200:
+#     articles = response.json().get("articles", [])
+#     return articles[:5]  # Return top 5 news articles
+# else:
+#     st.warning("⚠️ Unable to fetch news. API response:", response.json())
+#     return []
 
-def fetch_market_indices():
-    indices = {
-        "S&P 500": "https://finance.yahoo.com/quote/^GSPC/",
-        "NASDAQ": "https://finance.yahoo.com/quote/^IXIC/",
-        "Dow Jones": "https://finance.yahoo.com/quote/^DJI/"
-    }
-    return indices
+# def fetch_market_indices():
+# indices = {
+#     "S&P 500": "https://finance.yahoo.com/quote/^GSPC/",
+#     "NASDAQ": "https://finance.yahoo.com/quote/^IXIC/",
+#     "Dow Jones": "https://finance.yahoo.com/quote/^DJI/"
+# }
+# return indices
 
-def fetch_stock_data():
-    stocks = ['GOOGL', 'META', 'F', 'AAPL', 'NFLX']
-    stock_data = {}
-    for stock in stocks:
-        ticker = yf.Ticker(stock)
-        hist = ticker.history(period="1mo")  # Get last month's data
-        if not hist.empty:
-            stock_data[stock] = hist['Close']
-    return pd.DataFrame(stock_data)
+# def fetch_stock_data():
+# stocks = ['GOOGL', 'META', 'F', 'AAPL', 'NFLX']
+# stock_data = {}
+# for stock in stocks:
+#     ticker = yf.Ticker(stock)
+#     hist = ticker.history(period="1mo")  # Get last month's data
+#     if not hist.empty:
+#         stock_data[stock] = hist['Close']
+# return pd.DataFrame(stock_data)
 
 def main():
     st.set_page_config(page_title="Stock Prediction App", layout="wide")
@@ -73,33 +73,33 @@ def main():
     st.subheader("🌎 Live Market Overview")
     
     # Market Indices Links
-    with st.container():
-        st.subheader("📊 Global Market Indices")
-        indices = fetch_market_indices()
-        for name, link in indices.items():
-            st.markdown(f"🔗 [{name}]({link})")
+    # with st.container():
+    #     st.subheader("📊 Global Market Indices")
+    #     indices = fetch_market_indices()
+    #     for name, link in indices.items():
+    #         st.markdown(f"🔗 [{name}]({link})")
     
-    # Live Financial News
-    with st.container():
-        st.subheader("📰 Latest Financial News")
-        news_articles = fetch_financial_news()
-        if news_articles:
-            for article in news_articles:
-                st.markdown(f"**[{article['title']}]({article['url']})**")
-                st.write(f"🗞 {article['source']['name']} - {article['publishedAt'][:10]}")
-                st.write(f"{article['description']}")
-                st.write("---")
-        else:
-            st.warning("⚠️ Unable to fetch news at the moment. Try again later.")
+    # # Live Financial News
+    # with st.container():
+    #     st.subheader("📰 Latest Financial News")
+    #     news_articles = fetch_financial_news()
+    #     if news_articles:
+    #         for article in news_articles:
+    #             st.markdown(f"**[{article['title']}]({article['url']})**")
+    #             st.write(f"🗞 {article['source']['name']} - {article['publishedAt'][:10]}")
+    #             st.write(f"{article['description']}")
+    #             st.write("---")
+    #     else:
+    #         st.warning("⚠️ Unable to fetch news at the moment. Try again later.")
     
-    # Stock Trends Graph
-    with st.container():
-        st.subheader("📈 Stock Trends")
-        stock_df = fetch_stock_data()
-        if not stock_df.empty:
-            st.line_chart(stock_df)
-        else:
-            st.warning("⚠️ Unable to fetch stock data.")
+    # # Stock Trends Graph
+    # with st.container():
+    #     st.subheader("📈 Stock Trends")
+    #     stock_df = fetch_stock_data()
+    #     if not stock_df.empty:
+    #         st.line_chart(stock_df)
+    #     else:
+    #         st.warning("⚠️ Unable to fetch stock data.")
     
 
     
