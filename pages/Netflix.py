@@ -1,6 +1,7 @@
 import streamlit as st 
 import joblib
 import pandas as pd
+import plotly.graph_objects as go
 from util import PySimFin  # Import PySimFin class
 from sklearn.preprocessing import StandardScaler
 from trading_strategy import execute_trading_strategy
@@ -35,9 +36,9 @@ st.write(
 st.subheader("**As it is a logistic regression model, Please select larger range of dates, preferably 2 years or more**")
 
 # Date Input
-st.subheader("📆 Select Date Range")
-start_date = st.date_input("Start Date", pd.to_datetime("2023-01-01"), format="YYYY-MM-DD")
-end_date = st.date_input("End Date", pd.to_datetime("2024-01-01"), format="YYYY-MM-DD")
+st.sidebar.header("📅 Select Date Range")
+start_date = st.sidebar.date_input("Start Date", pd.to_datetime("2023-01-01"), format="YYYY-MM-DD")
+end_date = st.sidebar.date_input("End Date", pd.to_datetime("2024-01-01"), format="YYYY-MM-DD")
 
 # Convert dates to string format
 ticker = "NFLX"
@@ -84,6 +85,12 @@ df_scaled = pd.DataFrame(scaler.fit_transform(filtered_df), columns=filtered_df.
 if df_scaled is None or filtered_df.empty:
     st.error("❌ No valid data available after filtering selected features.")
     st.stop()
+
+# Display candlestick
+fig = go.Figure(data=[go.Candlestick(x=merged_df.index, open=clean_df['Open'], high=clean_df['High'], low=clean_df['Low'], close=clean_df['Close'])])
+fig.update_layout(title="📊 Apple Stock Candlestick Chart", template="plotly_dark")
+st.plotly_chart(fig, use_container_width=True)
+
 
 # Display Scaled Data
 with st.container():
