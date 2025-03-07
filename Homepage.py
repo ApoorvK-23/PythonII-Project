@@ -5,8 +5,8 @@ import pandas as pd
 import datetime
 
 def fetch_financial_news():
-    API_KEY = "05f45368af404d63ad3ff28eb948d049"  # Replace with your valid API key
-    url = f"https://newsapi.org/v2/top-headlines?category=business&language=en&apiKey={API_KEY}"
+    API_KEY = "1Sz45lN5jp4HrVJeS07bZ6KQv84GlrNw21jc77WX"  # Replace with your valid API key
+    url = f"https://api.marketaux.com/v1/news/all?language=en&api_token={API_KEY}"
     response = requests.get(url)
     if response.status_code == 200:
         articles = response.json().get("articles", [])
