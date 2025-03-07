@@ -88,7 +88,7 @@ if df_scaled is None or filtered_df.empty:
 
 # Display candlestick
 fig = go.Figure(data=[go.Candlestick(x=merged_df.index, open=clean_df['Open'], high=clean_df['High'], low=clean_df['Low'], close=clean_df['Close'])])
-fig.update_layout(title="📊 Apple Stock Candlestick Chart", template="plotly_dark")
+fig.update_layout(title="📊 Netflix Stock Candlestick Chart", template="plotly_dark")
 st.plotly_chart(fig, use_container_width=True)
 
 
