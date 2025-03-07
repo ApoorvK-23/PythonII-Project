@@ -9,3 +9,4 @@ joblib
 yfinance
 requests
 datetime
+plotly.express
