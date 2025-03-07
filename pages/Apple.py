@@ -33,10 +33,10 @@ st.write(
     " Apple is also a leader in financial performance, consistently showing strong stock growth and market dominance."
 )
 
-# Date Input
-st.subheader("📆 Select Date Range")
-start_date = st.date_input("Start Date", pd.to_datetime("2023-01-01"), format="YYYY-MM-DD")
-end_date = st.date_input("End Date", pd.to_datetime("2024-01-01"), format="YYYY-MM-DD")
+# Get share prices & financials
+st.sidebar.header("📅 Select Date Range")
+start_date = st.sidebar.date_input("Start Date", pd.to_datetime("2023-01-01"), format="YYYY-MM-DD")
+end_date = st.sidebar.date_input("End Date", pd.to_datetime("2024-01-01"), format="YYYY-MM-DD")
 
 # Convert dates to string format
 ticker = "AAPL"
@@ -44,9 +44,8 @@ start_date = start_date.strftime("%Y-%m-%d")
 end_date = end_date.strftime("%Y-%m-%d")
 
 # Get share prices & financials
-st.sidebar.header("📅 Select Date Range")
-start_date = st.sidebar.date_input("Start Date", pd.to_datetime("2023-01-01"), format="YYYY-MM-DD")
-end_date = st.sidebar.date_input("End Date", pd.to_datetime("2024-01-01"), format="YYYY-MM-DD")
+prices_df = simfin.get_share_prices(ticker, start_date, end_date)
+financials_df = simfin.get_financial_statement(ticker, start_date, end_date)
 
 # Validate retrieved data
 if prices_df is None or financials_df is None or prices_df.empty or financials_df.empty:
