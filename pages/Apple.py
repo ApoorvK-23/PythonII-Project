@@ -147,14 +147,14 @@ st.write(f"**Shares Held:** {final_results['Shares Held']}")
 st.write(f"**Total Portfolio Value:** ${final_results['Total Portfolio Value']:.2f}")
 
 # Simple Time Series Line Chart for Total Portfolio Value
-trading_df = pd.DataFrame(final_results["Trading History"], columns=["Date", "Portfolio Value"])
-fig, ax = plt.subplots()
-ax.plot(trading_df["Date"], trading_df["Portfolio Value"], marker='o', linestyle='-')
-ax.set_title("📈 Total Portfolio Value Over Time")
-ax.set_xlabel("Date")
-ax.set_ylabel("Portfolio Value")
-plt.xticks(rotation=45)
-st.pyplot(fig)
+# trading_df = pd.DataFrame(final_results["Trading History"], columns=["Date", "Portfolio Value"])
+# fig, ax = plt.subplots()
+# ax.plot(trading_df["Date"], trading_df["Portfolio Value"], marker='o', linestyle='-')
+# ax.set_title("📈 Total Portfolio Value Over Time")
+# ax.set_xlabel("Date")
+# ax.set_ylabel("Portfolio Value")
+# plt.xticks(rotation=45)
+# st.pyplot(fig)
 
 
 # Display Trading History as a DataFrame
