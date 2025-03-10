@@ -21,11 +21,10 @@ class TradingAccount:
     
 
     
-    def get_summary(self, final_price):
-        total_value = self.balance + (self.shares * final_price)
-        value_df = pd.DataFrame(total_value, columns=["Portfolio Value"])
+    def get_summary(self, df):
+        
 
-        fig = px.line(value_df, y="Portfolio Value", title="Total Portfolio Value Over Time")
+        fig = px.line(df, y="Portfolio Value", title="Total Portfolio Value Over Time")
         fig.update_layout(xaxis_title="Time", yaxis_title="Total Portfolio Value")
         
 
