@@ -1,4 +1,5 @@
 import pandas as pd
+import plotly.express as px
 
 class TradingAccount:
     def __init__(self, initial_balance):
@@ -22,11 +23,19 @@ class TradingAccount:
     
     def get_summary(self, final_price):
         total_value = self.balance + (self.shares * final_price)
+        value_df = pd.DataFrame(total_value, columns=["Portfolio Value"])
+
+        fig = px.line(value_df, y="Portfolio Value", title="Total Portfolio Value Over Time")
+        fig.update_layout(xaxis_title="Time", yaxis_title="Total Portfolio Value")
+        
+
         return {
             "Final Balance": self.balance,
             "Shares Held": self.shares,
             "Total Portfolio Value": total_value,
-            "Trading History": self.trading_history
+            "Trading History": self.trading_history,
+            "Portfolio Value Over Time": fig    
+
         }
 
 def execute_trading_strategy(predictions_df, initial_balance=10000):
