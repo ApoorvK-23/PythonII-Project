@@ -33,10 +33,19 @@ class TradingAccount:
             "Final Balance": self.balance,
             "Shares Held": self.shares,
             "Total Portfolio Value": total_value,
-            "Trading History": self.trading_history,
-            "Portfolio Value Over Time": fig    
-
+            "Trading History": self.trading_history
+               
         }
+        
+        
+        def get_graph(self, final_price):
+        total_value = self.balance + (self.shares * final_price)
+        value_df = pd.DataFrame(total_value, columns=["Portfolio Value"])
+
+        fig = px.line(value_df, y="Portfolio Value", title="Total Portfolio Value Over Time")
+        fig.update_layout(xaxis_title="Time", yaxis_title="Total Portfolio Value")
+        return fig
+
 
 def execute_trading_strategy(predictions_df, initial_balance=10000):
     account = TradingAccount(initial_balance)
@@ -52,7 +61,9 @@ def execute_trading_strategy(predictions_df, initial_balance=10000):
 
     
     final_summary = account.get_summary(predictions_df["Current Price"].iloc[-1])
-    return final_summary
+    graph = account.get_graph(predictions_df)
+    return final_summary, graph
+    
 
 # Example Usage (Replace 'pred1' with actual DataFrame containing predictions)
 # final_results = execute_trading_strategy(pred1)
