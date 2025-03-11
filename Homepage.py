@@ -72,35 +72,35 @@ def main():
     
     st.subheader("🌎 Live Market Overview")
     
-Market Indices Links
-with st.container():
-    st.subheader("📊 Global Market Indices")
-    indices = fetch_market_indices()
-    for name, link in indices.items():
-        st.markdown(f"🔗 [{name}]({link})")
-
-# Live Financial News
-with st.container():
-    st.subheader("📰 Latest Financial News")
-    news_articles = fetch_financial_news()
-    if news_articles:
-        for article in news_articles:
-            st.markdown(f"**[{article['title']}]({article['url']})**")
-            st.write(f"🗞 {article['source']['name']} - {article['publishedAt'][:10]}")
-            st.write(f"{article['description']}")
-            st.write("---")
-    else:
-        st.warning("⚠️ Unable to fetch news at the moment. Try again later.")
-
-# Stock Trends Graph
-with st.container():
-    st.subheader("📈 Stock Trends")
-    stock_df = fetch_stock_data()
-    if not stock_df.empty:
-        st.line_chart(stock_df)
-    else:
-        st.warning("⚠️ Unable to fetch stock data.")
+    #Market Indices Links
+    with st.container():
+        st.subheader("📊 Global Market Indices")
+        indices = fetch_market_indices()
+        for name, link in indices.items():
+            st.markdown(f"🔗 [{name}]({link})")
     
+    # Live Financial News
+    with st.container():
+        st.subheader("📰 Latest Financial News")
+        news_articles = fetch_financial_news()
+        if news_articles:
+            for article in news_articles:
+                st.markdown(f"**[{article['title']}]({article['url']})**")
+                st.write(f"🗞 {article['source']['name']} - {article['publishedAt'][:10]}")
+                st.write(f"{article['description']}")
+                st.write("---")
+        else:
+            st.warning("⚠️ Unable to fetch news at the moment. Try again later.")
+    
+    # Stock Trends Graph
+    with st.container():
+        st.subheader("📈 Stock Trends")
+        stock_df = fetch_stock_data()
+        if not stock_df.empty:
+            st.line_chart(stock_df)
+        else:
+            st.warning("⚠️ Unable to fetch stock data.")
+        
 
     
 
