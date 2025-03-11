@@ -71,9 +71,8 @@ separate_prices = clean_df['Close']
 
 
 # Select relevant features
-selected_features = ['Open', 'Close', 'Dividend', 'Short Term Debt', 'Depreciation & Amortization', 'Non-Cash Items',
-                     'Change in Working Capital', 'Net Cash from Operating Activities', 'Net Cash from Acquisitions & Divestitures',
-                     'Net Cash from Investing Activities', 'Selling, General & Administrative', 'RSI_14']
+selected_features = ['Open', 'Close', 'Dividend', 'Long Term Debt', 'Non-Cash Items', 'Change in Working Capital', 'Net Cash from Operating Activities', 'Net Change in Long Term Investment', 'Net Cash from Acquisitions & Divestitures', 'Net Cash from Financing Activities']
+
 filtered_df = simfin.filter_selected_features(clean_df, selected_features)
 
 # Scaling
