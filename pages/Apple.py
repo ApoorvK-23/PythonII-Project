@@ -77,9 +77,7 @@ separate_prices = clean_df['Close']
 
 filtered_df = clean_df[selected_features]
 
-with st.container():
-    st.subheader("filtered df")
-    st.dataframe(filtered_df)
+
 
 
 # Scaling
