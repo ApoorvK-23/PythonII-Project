@@ -10,11 +10,13 @@ def fetch_financial_news():
 
     response = requests.get(url)
     if response.status_code == 200:
-        articles = response.json().get("articles", [])
-        return articles[:5]  # Return top 5 news articles
+        articles = response.json()  
+        for article in articles[:5]:  # Display first 5 news articles
+            print(f"Headline: {article['headline']}")
+            print(f"Source: {article['source']}")
+            print(f"URL: {article['url']}\n")
     else:
-        st.warning("⚠️ Unable to fetch news. API response:", response.json())
-        return []
+        print("Error fetching data:", response.status_code)
 
 def fetch_market_indices():
     indices = {
