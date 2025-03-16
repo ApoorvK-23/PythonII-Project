@@ -72,7 +72,7 @@ Ensure you have the following installed:
 
 - **Challenges:**
   - Handling data imbalance (solved using **SMOTE**).
-  - API rate limits (optimized request frequency).
+  - API data column names
   - Performance variability across stocks.
 - **Future Enhancements:**
   - Expand stock selection.
