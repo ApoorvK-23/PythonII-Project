@@ -5,8 +5,9 @@ import pandas as pd
 import datetime
 
 def fetch_financial_news():
-    API_KEY = "QILhiabX1LXzA81O45YOLWQgaod6vV9IhxWceYZQ"  # Replace with your valid API key
-    url = f"https://api.marketaux.com/v1/news/all?language=en&api_token={API_KEY}"
+    API_KEY = "cvbf7e1r01qob7ud8v2gcvbf7e1r01qob7ud8v30"  # Replace with your valid API key
+    url = f"https://finnhub.io/api/v1/news?category=general&token={API_KEY}
+"
     response = requests.get(url)
     if response.status_code == 200:
         articles = response.json().get("articles", [])
