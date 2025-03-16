@@ -7,7 +7,7 @@ import datetime
 def fetch_financial_news():
     API_KEY = "cvbf7e1r01qob7ud8v2gcvbf7e1r01qob7ud8v30"  # Replace with your valid API key
     url = f"https://finnhub.io/api/v1/news?category=general&token={API_KEY}"
-"
+
     response = requests.get(url)
     if response.status_code == 200:
         articles = response.json().get("articles", [])
