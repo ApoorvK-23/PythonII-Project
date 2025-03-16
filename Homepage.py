@@ -9,14 +9,17 @@ def fetch_financial_news():
     url = f"https://finnhub.io/api/v1/news?category=general&token={API_KEY}"
 
     response = requests.get(url)
+    print("Status Code:", response.status_code)  # Print HTTP status code
+
     if response.status_code == 200:
-        articles = response.json()  
+        articles = response.json()
         for article in articles[:5]:  # Display first 5 news articles
             print(f"Headline: {article['headline']}")
             print(f"Source: {article['source']}")
             print(f"URL: {article['url']}\n")
     else:
         print("Error fetching data:", response.status_code)
+        print("Response Content:", response.text)
 
 def fetch_market_indices():
     indices = {
